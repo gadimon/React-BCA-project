@@ -2,9 +2,11 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
-      
-    </div>
+    <footer>
+      <p>
+        &copy; {new Date().getFullYear()} כל הזכויות שמורות | זכויות יוצרים
+      </p>
+    </footer>
   )
 }
 

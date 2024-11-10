@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './header/Header';
 import Main from './main/Main';
 import Footer from './footer/Footer';
 
-const Layout = () => {
+export interface Props{
+  children: React.ReactNode
+}
+
+const Layout = ({children}: Props) => { 
   return (
-    <div>
+    <div className='app-container'>
       <Header/>
-      <Main/>
+      <Main children={children}/>
       <Footer/>
     </div>
   )

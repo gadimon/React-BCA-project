@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import './App.css'
 import Layout from './layout/Layout'
+import AppRouter from './routes/AppRouter';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-     <Layout/>
+     <Layout children={<AppRouter/>}/>
     </>
   )
 }
 
-export default App
+export default App;
