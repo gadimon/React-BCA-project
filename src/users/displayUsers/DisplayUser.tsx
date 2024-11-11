@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import EditUser from '../editUser/EditUser';
+import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import { UserPro } from '../../providers/UserProvider';
 
 interface User{
     id?: string;
@@ -10,20 +10,19 @@ interface User{
     img: string;
   };
 interface Props {
-    users: User[];
     deleteUser: (id: string) => void;
     updateUser: (user: User) => void;
 }
 
-const DisplayUser = ({ users, deleteUser, updateUser}: Props) => {
-    const [flag, setFlag] = useState(false)
+const DisplayUser = ({deleteUser, updateUser}: Props) => {
+   const users = useContext(UserPro);
   return (
    <>
    <NavLink to={'/users/add'}>
     <button>Add user</button>
    </NavLink>
    <div className='card-list'>
-       {users.map((user) => (
+       {users!.map((user) => (
         <div key={user.id} className='user-card'>
             <img
               src={user.img}
@@ -45,16 +44,10 @@ const DisplayUser = ({ users, deleteUser, updateUser}: Props) => {
                 </button>
             </div>
             <button onClick={()=> {deleteUser(user.id!)}}>DELETE</button>
-            <button onClick={()=> {setFlag(true)}}>UPDATE</button>
-            {flag && <EditUser editUser={updateUser} user={user}/>}
            </div>
         ))} 
     </div>
   </>  
   )
 }
-
-
-
-
-export default DisplayUser
+export default DisplayUser;

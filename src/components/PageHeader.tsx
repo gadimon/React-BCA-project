@@ -1,8 +1,19 @@
 import React from 'react'
 
-const PageHeader = () => {
+interface Props{
+     title: string;
+     subTitle: string;
+}
+
+const PageHeader = (props: Props) => {
   return (
-    <div>PageHeader</div>
+    <div>
+        <h1>{props.title}</h1>
+        <h2>{props.subTitle
+            }</h2>
+        
+    </div>
+    
   )
 }
 

@@ -56,9 +56,10 @@ const Users = () => {
         <Route path='/card' element={<Card />}/>
         <Route path='*' element={<ErrorPage />}/>
 
-        <Route path='/' element={<DisplayUser users={users} deleteUser={deleteUser} updateUser={UpdateSetUser}/>}/>
+        <Route path='/' element={<DisplayUser deleteUser={deleteUser} updateUser={UpdateSetUser}/>}/>
         <Route path='/add' element={<NewUser addUser={addNewUser}/>}/>
         <Route path='/edit/:id' element={<EditUser user={user!} editUser={UpdateUser}/>}/>
+
         </Routes>
     </>
   )
